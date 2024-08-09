@@ -23,9 +23,11 @@
                 <p>快门：</p>
                 <input type="text" v-model="img_camera_drop_shutter">
                 <p>边框厚度：</p>
-                <input type="number" step="1" min="1" max="100" v-model.number="img_camera_padding" />
+                <input type="range" min="0" max="100" value="50" class="slider" id="mySlider"
+                    v-model.number="img_camera_padding">
                 <p>边框圆角：</p>
-                <input type="number" step="1" min="1" max="100" v-model.number="img_camera_br" />
+                <input type="range" min="0" max="100" value="50" class="slider" id="mySlider"
+                    v-model.number="img_camera_br">
             </div>
             <!-- 保存 -->
             <div class="edit-btn-group">
@@ -108,7 +110,7 @@ const img_style = computed(() => ({
 .img-edit-container {
     margin-top: 3rem;
     background-color: white;
-    padding: 0.8rem;
+    padding: 1.5rem 0.8rem 1rem 0.8rem;
     width: 300px;
     border-radius: 1rem;
 }
@@ -119,13 +121,14 @@ const img_style = computed(() => ({
 
     justify-content: center;
     align-items: center;
-
+    grid-gap: 0px;
+    /* 网格项之间的间距 */
 }
 
-.img-info-edit input {
-    height: 1rem;
-
+.img-info-edit>p {
+    margin: 8px 0px 8px 0px;
 }
+
 
 .edit-btn-group {
     display: flex;
